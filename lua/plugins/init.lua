@@ -1,17 +1,26 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
+	"shaunsingh/nord.nvim",
 
 	"nvim-lua/plenary.nvim",
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		opts = {},
 		lazy = false,
+	},
+
+	{
+		"glepnir/template.nvim",
+		cmd = { "Template", "TemProject" },
+		config = function()
+			require("template").setup({
+				temp_dir = "~/.config/nvim/templates",
+				author = "Daniel Heras Quesada",
+				email = "me@dqnid.com",
+			})
+		end,
 	},
 
 	{
@@ -24,11 +33,70 @@ local default_plugins = {
 	{ "windwp/nvim-ts-autotag", lazy = false },
 
 	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
+		"FeiyouG/commander.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
+		keys = {
+			{ "<leader>f", "<CMD>Telescope commander<CR>", mode = "n" },
+			{ "<leader>fc", "<CMD>Telescope commander<CR>", mode = "n" },
+		},
+		config = function()
+			require("commander").setup({
+				components = {
+					"DESC",
+					"KEYS",
+					"CAT",
+				},
+				sort_by = {
+					"DESC",
+					"KEYS",
+					"CAT",
+					"CMD",
+				},
+				integration = {
+					telescope = {
+						enable = true,
+					},
+					lazy = {
+						enable = true,
+						set_plugin_name_as_cat = true,
+					},
+				},
+			})
+		end,
+	},
+	{
+		"toppair/peek.nvim",
+		event = { "VeryLazy" },
+		build = "deno task --quiet build:fast",
+		config = function()
+			require("peek").setup({
+				auto_load = true, -- whether to automatically load preview when
+				-- entering another markdown buffer
+				close_on_bdelete = true, -- close preview window on buffer delete
+
+				syntax = true, -- enable syntax highlighting, affects performance
+
+				theme = "dark", -- 'dark' or 'light'
+
+				update_on_change = true,
+
+				app = { "chromium", "--new-window" },
+
+				-- explained below
+
+				filetype = { "markdown" }, -- list of filetypes to recognize as markdown
+
+				-- relevant if update_on_change is true
+				throttle_at = 200000, -- start throttling when file exceeds this
+				-- amount of bytes in size
+				throttle_time = "auto", -- minimum amount of time in milliseconds
+				-- that has to pass before starting new render
+			})
+			-- refer to `configuration to change defaults`
+			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 		end,
 	},
 
