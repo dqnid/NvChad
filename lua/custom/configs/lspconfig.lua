@@ -22,14 +22,14 @@ end
 -- lspconfig.pyright.setup { blabla}
 lspconfig.emmet_language_server.setup({
 	filetypes = {
-		"css",
+		-- "css",
 		"eruby",
 		"html",
 		"javascript",
 		"javascriptreact",
 		"less",
-		"sass",
-		"scss",
+		-- "sass",
+		-- "scss",
 		"pug",
 		"typescriptreact",
 	},
