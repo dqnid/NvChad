@@ -73,4 +73,6 @@ require("lspconfig").cssmodules_ls.setup({
 	},
 })
 
+require("lspconfig").vuels.setup({})
+
 return M
