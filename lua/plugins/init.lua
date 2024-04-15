@@ -5,22 +5,22 @@ local default_plugins = {
 
 	"nvim-lua/plenary.nvim",
 	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
+
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "error",
+				auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			})
+		end,
 		lazy = false,
 	},
 
 	{
-		"glepnir/template.nvim",
-		cmd = { "Template", "TemProject" },
-		config = function()
-			require("template").setup({
-				temp_dir = "~/.config/nvim/templates",
-				author = "Daniel Heras Quesada",
-				email = "me@dqnid.com",
-			})
-		end,
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+		lazy = false,
 	},
 
 	{
