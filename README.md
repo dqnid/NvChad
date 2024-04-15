@@ -140,5 +140,6 @@ example, delete until string is found.
 ### [nvim-surround](https://github.com/kylechui/nvim-surround)
 
 - Change quotes: `cs'"`
+- Remove parenthesis: `ds)`
 - Surround word with `<char>`: `ysiw<char>`
 - Remove HTML tags: `dst`

@@ -5,6 +5,14 @@ local default_plugins = {
 
 	"nvim-lua/plenary.nvim",
 	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
 
 		"rmagatti/auto-session",
 		config = function()
