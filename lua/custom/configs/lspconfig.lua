@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "jsonls" }
+local servers = { "html", "cssls", "tsserver", "clangd", "jsonls", "somesass_ls" }
 
 local lsp_flags = {
 	allow_incremental_sync = true,
@@ -31,7 +31,7 @@ lspconfig.emmet_language_server.setup({
 		-- "sass",
 		-- "scss",
 		"pug",
-		"typescriptreact",
+		-- "typescriptreact",
 	},
 	-- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
 	-- **Note:** only the options listed in the table are supported.
