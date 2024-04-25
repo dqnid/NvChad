@@ -143,3 +143,5 @@ example, delete until string is found.
 - Remove parenthesis: `ds)`
 - Surround word with `<char>`: `ysiw<char>`
 - Remove HTML tags: `dst`
+- Save session: `<leader>sr`
+- Open session restore: `<leader>sr`

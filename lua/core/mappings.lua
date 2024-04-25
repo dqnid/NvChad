@@ -465,4 +465,23 @@ M.gitsigns = {
 	},
 }
 
+M.sessions = {
+	plugin = false,
+
+	n = {
+		["<leader>sr"] = {
+			function()
+				vim.cmd("Telescope session-lens search_session")
+			end,
+			"Session search",
+		},
+		["<leader>ss"] = {
+			function()
+				vim.cmd("SessionSave")
+			end,
+			"Session save",
+		},
+	},
+}
+
 return M

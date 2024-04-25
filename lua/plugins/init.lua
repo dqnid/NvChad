@@ -5,6 +5,20 @@ local default_plugins = {
 
 	"nvim-lua/plenary.nvim",
 	{
+		"rmagatti/session-lens",
+		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("session-lens").setup({
+				prompt_title = "LAST SESSIONS",
+				path_display = { "shorten" },
+				theme = "ivy", -- default is dropdown
+				theme_conf = { border = false },
+				previewer = true,
+			})
+		end,
+		lazy = false,
+	},
+	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 		opts = {},
