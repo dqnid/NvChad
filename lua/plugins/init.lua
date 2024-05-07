@@ -1,7 +1,46 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
-	"shaunsingh/nord.nvim",
+	-- vim.cmd('colorscheme poimandres')
+	{
+		"olivercederborg/poimandres.nvim",
+		lazy = false,
+		priority = 999999,
+		config = function()
+			require("poimandres").setup({
+				bold_vert_split = false, -- use bold vertical separators
+				dim_nc_background = false, -- dim 'non-current' window backgrounds
+				disable_background = true, -- disable background
+				disable_float_background = false, -- disable background for floats
+				disable_italics = false, -- disable italics
+			})
+		end,
+
+		-- optionally set the colorscheme within lazy config
+		init = function()
+			vim.cmd("colorscheme poimandres")
+		end,
+	},
+	{
+		"aktersnurra/no-clown-fiesta.nvim",
+		config = function()
+			require("no-clown-fiesta").setup({
+				transparent = true, -- Enable this to disable the bg color
+				styles = {
+					-- You can set any of the style values specified for `:h nvim_set_hl`
+					comments = {},
+					functions = {},
+					keywords = {},
+					lsp = { underline = true },
+					match_paren = {},
+					type = { bold = true },
+					variables = {},
+				},
+			})
+		end,
+	},
+	"Mofiqul/vscode.nvim",
+
 	"nvim-lua/plenary.nvim",
 
 	"MunifTanjim/nui.nvim",
@@ -22,18 +61,25 @@ local default_plugins = {
 		},
 		config = function()
 			require("noice").setup({
+				views = {
+					cmdline_popup = {
+						position = {
+							row = 15,
+							col = "50%",
+						},
+						size = {
+							width = 60,
+							height = "auto",
+						},
+					},
+				},
 				cmdline = {
-					enabled = true, -- enables the Noice cmdline UI
-					view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-					opts = {}, -- global options for the cmdline. See section on views
+					enabled = true,
+					view = "cmdline_popup",
+					opts = {},
 					---@type table<string, CmdlineFormat>
 					format = {
-						-- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
-						-- view: (default is cmdline view)
-						-- opts: any options passed to the view
-						-- icon_hl_group: optional hl_group for the icon
-						-- title: set to anything or empty string to hide
-						cmdline = { pattern = "^:", icon = "λ", lang = "vim" },
+						cmdline = { pattern = "^:", icon = "λ", lang = "vim", title = "" },
 						search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
 						search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
 						filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
