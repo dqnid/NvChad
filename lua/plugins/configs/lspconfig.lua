@@ -41,7 +41,9 @@ M.capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-require("lspconfig").lua_ls.setup({
+local lspconfig = require("lspconfig")
+
+lspconfig.lua_ls.setup({
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 
@@ -64,7 +66,7 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
-require("lspconfig").cssmodules_ls.setup({
+lspconfig.cssmodules_ls.setup({
 	-- provide your on_attach to bind keymappings
 	on_attach = M.on_attach,
 	-- optionally
@@ -73,7 +75,21 @@ require("lspconfig").cssmodules_ls.setup({
 	},
 })
 
--- require("lspconfig").vuels.setup({})
-require("lspconfig").volar.setup({})
+local vue_language_server_path = "/usr/bin/vue-language-server"
+
+lspconfig.tsserver.setup({
+	init_options = {
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = vue_language_server_path,
+				languages = { "vue" },
+			},
+		},
+	},
+	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+})
+-- lspconfig.vuels.setup({})
+lspconfig.volar.setup({})
 
 return M
