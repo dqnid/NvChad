@@ -1,26 +1,32 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
-	-- vim.cmd('colorscheme poimandres')
 	{
-		"olivercederborg/poimandres.nvim",
-		lazy = false,
-		priority = 999999,
-		config = function()
-			require("poimandres").setup({
-				bold_vert_split = false, -- use bold vertical separators
-				dim_nc_background = false, -- dim 'non-current' window backgrounds
-				disable_background = true, -- disable background
-				disable_float_background = false, -- disable background for floats
-				disable_italics = false, -- disable italics
-			})
-		end,
-
-		-- optionally set the colorscheme within lazy config
+		dir = "~/Documents/Proyectos/nvim-blueprints",
+		name = "blueprints",
 		init = function()
-			vim.cmd("colorscheme poimandres")
+			require("blueprints").setup({ blueprintsDir = "/home/danih/Documents/Proyectos/nvim-blueprints/blueprints" })
 		end,
 	},
+	-- {
+	-- 	"olivercederborg/poimandres.nvim",
+	-- 	lazy = false,
+	-- 	priority = 999999,
+	-- 	config = function()
+	-- 		require("poimandres").setup({
+	-- 			bold_vert_split = false, -- use bold vertical separators
+	-- 			dim_nc_background = false, -- dim 'non-current' window backgrounds
+	-- 			disable_background = true, -- disable background
+	-- 			disable_float_background = false, -- disable background for floats
+	-- 			disable_italics = false, -- disable italics
+	-- 		})
+	-- 	end,
+
+	-- optionally set the colorscheme within lazy config
+	-- init = function()
+	-- 	vim.cmd("colorscheme poimandres")
+	-- end,
+	-- },
 	{
 		"aktersnurra/no-clown-fiesta.nvim",
 		config = function()
@@ -39,37 +45,36 @@ local default_plugins = {
 			})
 		end,
 	},
-	"Mofiqul/vscode.nvim",
 
 	"nvim-lua/plenary.nvim",
 
 	"MunifTanjim/nui.nvim",
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("notify").setup({
-				background_colour = "#131313",
-				fps = 30,
-				icons = {
-					DEBUG = "",
-					ERROR = "",
-					INFO = "",
-					TRACE = "✎",
-					WARN = "",
-				},
-				level = 2,
-				minimum_width = 50,
-				render = "default",
-				stages = "fade_in_slide_out",
-				time_formats = {
-					notification = "%T",
-					notification_history = "%FT%T",
-				},
-				timeout = 3000,
-				top_down = false,
-			})
-		end,
-	},
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	config = function()
+	-- 		require("notify").setup({
+	-- 			background_colour = "#131313",
+	-- 			fps = 30,
+	-- 			icons = {
+	-- 				DEBUG = "",
+	-- 				ERROR = "",
+	-- 				INFO = "",
+	-- 				TRACE = "✎",
+	-- 				WARN = "",
+	-- 			},
+	-- 			level = 2,
+	-- 			minimum_width = 50,
+	-- 			render = "default",
+	-- 			stages = "fade_in_slide_out",
+	-- 			time_formats = {
+	-- 				notification = "%T",
+	-- 				notification_history = "%FT%T",
+	-- 			},
+	-- 			timeout = 3000,
+	-- 			top_down = false,
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -82,7 +87,7 @@ local default_plugins = {
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify",
 		},
 		config = function()
 			require("noice").setup({

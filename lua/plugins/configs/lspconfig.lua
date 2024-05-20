@@ -87,7 +87,7 @@ lspconfig.tsserver.setup({
 			},
 		},
 	},
-	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+	filetypes = { "vue" },
 })
 -- lspconfig.vuels.setup({})
 lspconfig.volar.setup({})

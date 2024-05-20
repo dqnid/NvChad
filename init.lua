@@ -20,7 +20,6 @@ dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 -- vim.opt.termguicolors = true -- avoid themes
 require("plugins")
-vim.cmd("colorscheme poimandres")
 
 vim.cmd("set colorcolumn=85")
-vim.cmd("hi ColorColumn ctermbg=lightgrey guibg=lightgrey")
+-- vim.cmd("hi ColorColumn ctermbg=lightgrey guibg=lightgrey")
