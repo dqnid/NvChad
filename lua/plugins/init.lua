@@ -5,7 +5,7 @@ local default_plugins = {
 		dir = "~/Documents/Proyectos/nvim-blueprints",
 		name = "blueprints",
 		init = function()
-			require("blueprints").setup({ blueprintsDir = "/home/danih/Documents/Proyectos/nvim-blueprints/blueprints" })
+			require("blueprints").setup({ blueprintsDir = "/home/dqnid/Documents/Proyectos/nvim-blueprints/blueprints" })
 		end,
 	},
 	-- {

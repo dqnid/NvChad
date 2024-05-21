@@ -22,4 +22,5 @@ vim.opt.rtp:prepend(lazypath)
 require("plugins")
 
 vim.cmd("set colorcolumn=85")
+vim.cmd("set rnu")
 -- vim.cmd("hi ColorColumn ctermbg=lightgrey guibg=lightgrey")
