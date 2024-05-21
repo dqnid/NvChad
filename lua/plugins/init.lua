@@ -2,10 +2,10 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
 	{
-		dir = "~/Documents/Proyectos/nvim-blueprints",
+		"dqnid/nvim-blueprints",
 		name = "blueprints",
 		init = function()
-			require("blueprints").setup({ blueprintsDir = "/home/dqnid/Documents/Proyectos/nvim-blueprints/blueprints" })
+			require("blueprints").setup({ blueprintsDir = "/home/danih/.config/nvim/blueprints" })
 		end,
 	},
 	-- {

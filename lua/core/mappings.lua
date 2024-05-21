@@ -484,4 +484,17 @@ M.sessions = {
 	},
 }
 
+M.blueprints = {
+	plugin = false,
+
+	n = {
+		["<leader>ct"] = {
+			function()
+				vim.cmd("lua require('blueprints').createFromTemplateTelescope()")
+			end,
+			"Create from template",
+		},
+	},
+}
+
 return M
