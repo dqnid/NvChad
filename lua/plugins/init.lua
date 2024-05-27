@@ -8,73 +8,36 @@ local default_plugins = {
 			require("blueprints").setup({ blueprintsDir = "/home/danih/.config/nvim/blueprints" })
 		end,
 	},
-	-- {
-	-- 	"olivercederborg/poimandres.nvim",
-	-- 	lazy = false,
-	-- 	priority = 999999,
-	-- 	config = function()
-	-- 		require("poimandres").setup({
-	-- 			bold_vert_split = false, -- use bold vertical separators
-	-- 			dim_nc_background = false, -- dim 'non-current' window backgrounds
-	-- 			disable_background = true, -- disable background
-	-- 			disable_float_background = false, -- disable background for floats
-	-- 			disable_italics = false, -- disable italics
-	-- 		})
-	-- 	end,
-
-	-- optionally set the colorscheme within lazy config
-	-- init = function()
-	-- 	vim.cmd("colorscheme poimandres")
-	-- end,
-	-- },
-	{
-		"aktersnurra/no-clown-fiesta.nvim",
-		config = function()
-			require("no-clown-fiesta").setup({
-				transparent = true, -- Enable this to disable the bg color
-				styles = {
-					-- You can set any of the style values specified for `:h nvim_set_hl`
-					comments = {},
-					functions = {},
-					keywords = {},
-					lsp = { underline = true },
-					match_paren = {},
-					type = { bold = true },
-					variables = {},
-				},
-			})
-		end,
-	},
 
 	"nvim-lua/plenary.nvim",
 
 	"MunifTanjim/nui.nvim",
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	config = function()
-	-- 		require("notify").setup({
-	-- 			background_colour = "#131313",
-	-- 			fps = 30,
-	-- 			icons = {
-	-- 				DEBUG = "",
-	-- 				ERROR = "",
-	-- 				INFO = "",
-	-- 				TRACE = "✎",
-	-- 				WARN = "",
-	-- 			},
-	-- 			level = 2,
-	-- 			minimum_width = 50,
-	-- 			render = "default",
-	-- 			stages = "fade_in_slide_out",
-	-- 			time_formats = {
-	-- 				notification = "%T",
-	-- 				notification_history = "%FT%T",
-	-- 			},
-	-- 			timeout = 3000,
-	-- 			top_down = false,
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			require("notify").setup({
+				background_colour = "#131313",
+				fps = 30,
+				icons = {
+					DEBUG = "",
+					ERROR = "",
+					INFO = "",
+					TRACE = "✎",
+					WARN = "",
+				},
+				level = 2,
+				minimum_width = 50,
+				render = "default",
+				stages = "fade_in_slide_out",
+				time_formats = {
+					notification = "%T",
+					notification_history = "%FT%T",
+				},
+				timeout = 3000,
+				top_down = false,
+			})
+		end,
+	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
